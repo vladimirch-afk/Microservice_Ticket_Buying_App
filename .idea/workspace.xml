@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0645ba6-976d-4390-a4ca-dbfa3a76454e" name="Changes" comment="1" />
+    <list default="true" id="c0645ba6-976d-4390-a4ca-dbfa3a76454e" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/controllers/AuthController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/controllers/AuthControllerImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDaoImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/entities/InfoEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/AuthService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/AuthServiceImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/TokenService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/TokenServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +48,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -82,6 +96,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -102,6 +117,15 @@
       <recent name="C:\Users\vladi\OneDrive\Рабочий стол\hw4-Chechurov_Vladimir-227" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="TemproarySpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="TemproarySpring.main" />
@@ -113,6 +137,13 @@
     <configuration name="TicketsAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="tickets-app.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.hse.ticketsapp.TicketsAppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicketsAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="tickets-auth.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.hse.ticketsauth.TicketsAuthApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,7 +172,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717334059545</updated>
-      <workItem from="1717334060951" duration="2956000" />
+      <workItem from="1717334060951" duration="7460000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -167,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717336789725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1717337081848</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717337081848</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +214,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>
