@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0645ba6-976d-4390-a4ca-dbfa3a76454e" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/controllers/AuthController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/controllers/AuthControllerImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDaoImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/entities/InfoEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/AuthService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/AuthServiceImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/TokenService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/TokenServiceImpl.kt" afterDir="false" />
+    <list default="true" id="c0645ba6-976d-4390-a4ca-dbfa3a76454e" name="Changes" comment="Added classes for auth">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets-auth/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/tickets-auth/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/controllers/AuthControllerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/controllers/AuthControllerImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDaoImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/dao/AuthDaoImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/TokenServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tickets-auth/src/main/kotlin/ru/hse/ticketsauth/services/TokenServiceImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,27 +81,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/vladi/OneDrive/Рабочий стол/hw4-Chechurov_Vladimir-227/tickets-app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vladi/OneDrive/Рабочий стол/hw4-Chechurov_Vladimir-227/tickets-app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "kotlin-gradle-user-dirs": [
-      "C:\\Users\\vladi\\.gradle"
+  &quot;keyToStringList&quot;: {
+    &quot;kotlin-gradle-user-dirs&quot;: [
+      &quot;C:\\Users\\vladi\\.gradle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vladi\OneDrive\Рабочий стол\hw4-Chechurov_Vladimir-227\tickets-app" />
@@ -126,7 +124,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.TemproarySpringApplication">
     <configuration name="TemproarySpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="TemproarySpring.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.hse.temproaryspring.TemproarySpringApplication" />
@@ -172,7 +170,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717334059545</updated>
-      <workItem from="1717334060951" duration="7460000" />
+      <workItem from="1717334060951" duration="10544000" />
+      <workItem from="1717396220115" duration="308000" />
+      <workItem from="1717396555906" duration="568000" />
+      <workItem from="1717397148841" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -206,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717337081848</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added classes for auth">
+      <option name="closed" value="true" />
+      <created>1717362148278</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717362148278</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +224,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Added classes for auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added classes for auth" />
   </component>
 </project>

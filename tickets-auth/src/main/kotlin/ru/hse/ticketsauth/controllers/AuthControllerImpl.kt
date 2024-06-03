@@ -25,7 +25,7 @@ class AuthControllerImpl (
                        @RequestParam password: String): String {
         val id = authService.authUser(email, password)
         val token = tokenService.getToken(id)
-
+        return token
     }
 
     @GetMapping("/info/{token}")
