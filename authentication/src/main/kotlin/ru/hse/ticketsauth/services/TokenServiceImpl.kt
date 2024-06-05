@@ -1,39 +1,37 @@
 package ru.hse.ticketsauth.services
 
-import com.auth0.jwt.JWT
-import com.auth0.jwt.algorithms.Algorithm
 import org.springframework.stereotype.Service
-import ru.hse.ticketsauth.dao.AuthDao
+import ru.hse.ticketsauth.dao.SessionEntityDao
+import ru.hse.ticketsauth.dao.entities.SessionEntity
+import ru.hse.ticketsauth.mapper.SessionEntityMapper
+import ru.hse.ticketsauth.jwt.TokenGenerator
 import java.time.LocalDateTime
-import java.time.ZoneOffset
+import kotlin.jvm.optionals.getOrNull
 
 @Service
 class TokenServiceImpl(
-    val authDao : AuthDao
+    val sessionEntityDao: SessionEntityDao,
+    val tokenGenerator : TokenGenerator,
+    val sessionEntityMapper: SessionEntityMapper
 ) : TokenService {
 
-    private lateinit var code: String
+    private val expirationTime : Long = 30 * 1000
 
-    override fun getToken(id: Int): String {
-        val session = authDao.findById(id)
+    override fun getTokenByUserId(id: Long): String {
+        val session = sessionEntityDao.getByUserId(id)
+        val expires = LocalDateTime.now().plusSeconds(expirationTime)
+        val token = tokenGenerator.generateToken(id.toString())
 
-        val algo = Algorithm.HMAC256(code)
-        val expires = LocalDateTime.now().plusSeconds(lifetime)
-        val token = JWT.create()
-            .withIssuer(id.toString())
-            .withExpiresAt(expires.toInstant(ZoneOffset.UTC))
-            .sign(algo)
-
-        authDao.save(SessionEntityDB(session?.id, userId, token, expires))
+        sessionEntityDao.save(SessionEntity(session.getOrNull()?.id, id, token, expires))
         return token
     }
 
-    override fun checkToken(token: String): SessionEntity {
-        val session = sessionsRepository.findByToken(token) ?: throw InvalidArgumentException("Invalid token!")
-        if(session.expires.isBefore(LocalDateTime.now())){
-            throw InvalidArgumentException("Token expired!")
+    override fun findSessionByToken(token: String): ru.hse.ticketsauth.services.entities.SessionEntity {
+        val session = sessionEntityDao.getByToken(token).orElseThrow()
+        if(session.expireTime.isBefore(LocalDateTime.now())){
+            throw IllegalStateException("Token is expired.")
         }
-        return session.toSessionEntitySRV()
+        return sessionEntityMapper.sessionEntityDaoToSessionEntityService(session)
     }
 
 }

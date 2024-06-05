@@ -1,10 +1,8 @@
 package ru.hse.ticketsauth.services
 
-import org.springframework.stereotype.Component
-import ru.hse.ticketsauth.entities.SessionEntity
+import ru.hse.ticketsauth.services.entities.SessionEntity
 
-@Component
 interface TokenService {
-    fun getToken(id : Int) : String
-    fun checkToken(token : String) : SessionEntity
+    fun getTokenByUserId(id : Long) : String
+    fun findSessionByToken(token : String) : SessionEntity
 }

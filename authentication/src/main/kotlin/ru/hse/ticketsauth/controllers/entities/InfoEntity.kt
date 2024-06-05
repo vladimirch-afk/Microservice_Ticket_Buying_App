@@ -1,7 +1,7 @@
-package ru.hse.ticketsauth.entities
+package ru.hse.ticketsauth.controllers.entities
 
 data class InfoEntity(
-    val id : Int,
+    val id : Long,
     val name : String,
     val email : String,
 )
