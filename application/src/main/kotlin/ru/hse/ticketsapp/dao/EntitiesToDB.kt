@@ -1,4 +1,4 @@
-package ru.hse.ticketsauth.dao
+package ru.hse.ticketsapp.dao
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Configuration

@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
-@Table("session_table")
+@Table("session")
 data class SessionEntity(
     @Id
     val id : Long?,
