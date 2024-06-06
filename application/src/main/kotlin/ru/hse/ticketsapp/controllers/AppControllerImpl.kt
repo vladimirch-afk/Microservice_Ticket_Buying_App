@@ -8,22 +8,19 @@ import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-import ru.hse.ticketsapp.api.AuthenticationApi
-import ru.hse.ticketsapp.dao.OrderEntityDao
 import ru.hse.ticketsapp.services.OrderService
 
 @RestController
 class AppControllerImpl(
-    val authenticationApi: AuthenticationApi,
     val orderService: OrderService,
 ) : AppController {
 
     @PostMapping("/app/buy")
     @ResponseStatus(HttpStatus.CREATED)
     override fun buyTicket(@RequestHeader token: String,
-                           @RequestParam from: Long,
-                           @RequestParam to: Long) {
-        orderService.createOrder(token, from, to)
+                           @RequestParam from: String,
+                           @RequestParam to: String) : Long {
+        return orderService.createOrder(token, from, to)
     }
 
     @GetMapping("/app/check")

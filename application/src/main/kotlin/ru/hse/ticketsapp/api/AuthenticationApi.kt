@@ -9,6 +9,7 @@ import ru.hse.ticketsapp.controllers.entities.InfoEntity
 @FeignClient(name="application")
 @Component
 interface AuthenticationApi {
+
     @GetMapping("/info/{token}")
     fun getUserInfo(@PathVariable token: String): InfoEntity
 }
