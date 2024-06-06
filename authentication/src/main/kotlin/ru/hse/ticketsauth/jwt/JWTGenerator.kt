@@ -20,7 +20,7 @@ class JWTGenerator: TokenGenerator {
 
     private fun hmac(string : String) : String {
         val secretKeySpec = SecretKeySpec(key.toByteArray(), HMAC_SHA256)
-        val mac = Mac.getInstance(HMAC_SHA256)
+        val mac = Mac.getInstance("HmacSHA256")
         mac.init(secretKeySpec)
         return mac.doFinal(string.toByteArray()).joinToString("") { "%02x".format(it) }
     }

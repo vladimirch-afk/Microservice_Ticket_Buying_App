@@ -1,5 +1,5 @@
-FROM postgres:16.3-alpine
-ENV POSTGRES_USERNAME postgres
-ENV POSTGRES_PASSWORD postgres
+FROM postgres:alpine3.20
 COPY db1.sql /docker-entrypoint-initdb.d/db1.sql
-EXPOSE 5432
+ENV POSTGRES_USERNAME=postgres
+ENV POSTGRES_PASSWORD=postgres
+EXPOSE 5432/tcp

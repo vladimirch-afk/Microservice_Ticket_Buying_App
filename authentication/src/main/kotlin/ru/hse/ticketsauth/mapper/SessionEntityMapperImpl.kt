@@ -1,7 +1,6 @@
 package ru.hse.ticketsauth.mapper
 
 import org.springframework.stereotype.Component
-import ru.hse.ticketsauth.services.entities.SessionEntity
 
 @Component
 class SessionEntityMapperImpl : SessionEntityMapper {

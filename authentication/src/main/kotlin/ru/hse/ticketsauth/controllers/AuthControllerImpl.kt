@@ -1,6 +1,7 @@
 package ru.hse.ticketsauth.controllers
 
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import ru.hse.ticketsauth.controllers.entities.InfoEntity
 import ru.hse.ticketsauth.mapper.InfoEntityMapper
@@ -15,11 +16,11 @@ class AuthControllerImpl (
 ) : AuthController {
 
     @PostMapping("/auth/create")
-    @ResponseStatus(code = HttpStatus.CREATED)
     override fun createUser(@RequestParam userName: String,
                             @RequestParam email: String,
-                            @RequestParam password: String) {
+                            @RequestParam password: String) : ResponseEntity<String> {
         authService.createUser(userName, email, password)
+        return ResponseEntity.status(HttpStatus.CREATED).body("Registration was successful.")
     }
 
     @GetMapping("/auth/login")

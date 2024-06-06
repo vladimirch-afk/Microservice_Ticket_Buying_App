@@ -16,13 +16,19 @@ class AuthServiceImpl(
     val tokenService: TokenService,
 ) : AuthService {
     override fun createUser(userName: String, email: String, password: String) {
+        checkEmail(email)
+        checkPassword(password)
         val user = UserEntity(
             null,
             userName,
             email,
             encryptor.encrypt(password),
             LocalDateTime.now())
-        userEntityDao.save(user)
+        try {
+            userEntityDao.save(user)
+        } catch (e: Exception) {
+            throw IllegalArgumentException("Bad arguments for user creation are passed or user already exists.")
+        }
     }
 
     override fun authUser(email: String, password: String): ru.hse.ticketsauth.services.entities.UserEntity {
@@ -39,5 +45,33 @@ class AuthServiceImpl(
         val userDao = userEntityDao.findById(id).get()
         val userService = userEntityMapper.userEntityDaoToUserEntityService(userDao)
         return userEntityMapper.userEntityServiceToInfoEntity(userService)
+    }
+
+    private fun checkEmail(email: String) {
+        val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$"
+        if (email.isEmpty() || !email.matches(emailRegex.toRegex())) {
+            throw IllegalArgumentException("Invalid email format.")
+        }
+    }
+
+    private fun checkPassword(password: String) {
+        val special = "[@#\$&%!~]+"
+
+        if (password.length < 8) {
+            throw IllegalArgumentException("Password must contain 8 symbols.")
+        }
+
+        if (!password.any { it.isUpperCase() } || !password.any { it.isLowerCase() }) {
+            throw IllegalArgumentException("Password must contain both letter registers.")
+        }
+
+        if (!password.any {it.isDigit()}) {
+            throw IllegalArgumentException("Password must contain at least one digit.")
+        }
+
+        if (!password.any { special.contains(it) }) {
+            throw IllegalArgumentException("Password must contain at least one special character"
+            + "@#$&%!~")
+        }
     }
 }
