@@ -1,4 +1,4 @@
-package ru.hse.ticketsauth.exceptions
+package ru.hse.ticketsapp.exceptions
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.http.HttpStatus

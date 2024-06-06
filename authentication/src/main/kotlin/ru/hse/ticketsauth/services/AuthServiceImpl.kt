@@ -16,6 +16,7 @@ class AuthServiceImpl(
     val tokenService: TokenService,
 ) : AuthService {
     override fun createUser(userName: String, email: String, password: String) {
+        checkName(userName)
         checkEmail(email)
         checkPassword(password)
         val user = UserEntity(
@@ -45,6 +46,12 @@ class AuthServiceImpl(
         val userDao = userEntityDao.findById(id).get()
         val userService = userEntityMapper.userEntityDaoToUserEntityService(userDao)
         return userEntityMapper.userEntityServiceToInfoEntity(userService)
+    }
+
+    private fun checkName(name: String) {
+        if (name.isBlank()) {
+            throw IllegalArgumentException("Name can not be blank.")
+        }
     }
 
     private fun checkEmail(email: String) {
