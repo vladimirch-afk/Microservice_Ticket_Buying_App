@@ -1,7 +1,6 @@
 package ru.hse.ticketsauth.services
 
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.ResponseStatus
 import ru.hse.ticketsauth.dao.SessionEntityDao
 import ru.hse.ticketsauth.dao.entities.SessionEntity
 import ru.hse.ticketsauth.mapper.SessionEntityMapper
