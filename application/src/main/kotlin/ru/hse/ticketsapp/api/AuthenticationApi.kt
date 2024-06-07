@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import ru.hse.ticketsapp.controllers.entities.InfoEntity
 
-@FeignClient(name="application")
+@FeignClient(name="application", url="authentication")
 @Component
 interface AuthenticationApi {
 

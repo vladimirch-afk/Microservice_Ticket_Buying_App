@@ -17,14 +17,14 @@ class AppControllerImpl(
 
     @PostMapping("/app/buy")
     @ResponseStatus(HttpStatus.CREATED)
-    override fun buyTicket(@RequestHeader token: String,
+    override fun buyTicket(@RequestHeader("jwt") token: String,
                            @RequestParam from: String,
                            @RequestParam to: String) : Long {
         return orderService.createOrder(token, from, to)
     }
 
     @GetMapping("/app/check")
-    override fun checkOrderStatus(@RequestHeader token: String,
+    override fun checkOrderStatus(@RequestHeader("jwt") token: String,
                                   @RequestParam orderId: Long) : ResponseEntity<String> {
         val ans = orderService.checkOrderStatus(token, orderId)
         return ResponseEntity.status(HttpStatus.OK).body(ans)
