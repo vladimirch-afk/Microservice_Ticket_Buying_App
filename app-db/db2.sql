@@ -27,3 +27,4 @@ CREATE TABLE "order"
 
 INSERT INTO station (station) VALUES ('S1');
 INSERT INTO station (station) VALUES ('S2');
+INSERT INTO station (station) VALUES ('S3');
