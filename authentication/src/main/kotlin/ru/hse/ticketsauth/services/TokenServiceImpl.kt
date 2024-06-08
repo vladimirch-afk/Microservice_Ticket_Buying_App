@@ -28,8 +28,6 @@ class TokenServiceImpl(
 
     override fun findSessionByToken(token: String): ru.hse.ticketsauth.services.entities.SessionEntity {
         val session = sessionEntityDao.getByToken(token).orElseThrow()
-        println(session.expireTime)
-        println(LocalDateTime.now())
         if(session.expireTime.isBefore(LocalDateTime.now())){
             throw IllegalStateException("Token is expired.")
         }
