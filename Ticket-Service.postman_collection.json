@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "d0532e41-d444-4704-85da-09b9e9b417eb",
+		"name": "Ticket-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35016579"
+	},
+	"item": [
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/auth/create?userName=name1&email=com&password=pass",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "name1"
+								},
+								{
+									"key": "email",
+									"value": "com"
+								},
+								{
+									"key": "password",
+									"value": "pass"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/auth/login?email=&password=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": ""
+								},
+								{
+									"key": "password",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/info/:token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "Buy ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt",
+								"value": "eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.MQ==.ffad264fec84a358f13f03eef06dc9dd13bfdd2f5372abd8ca7859712550eb25"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/app/buy?from=S1&to=S2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"app",
+								"buy"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "S1"
+								},
+								{
+									"key": "to",
+									"value": "S2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check ticket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "jwt",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/app/check?orderId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"app",
+								"check"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
