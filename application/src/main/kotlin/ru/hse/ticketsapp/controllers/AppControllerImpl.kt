@@ -1,7 +1,6 @@
 package ru.hse.ticketsapp.controllers
 
 import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestHeader
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import ru.hse.ticketsapp.services.OrderService
+import ru.hse.ticketsapp.services.entities.OrderEntity
 
 @RestController
 class AppControllerImpl(
@@ -24,9 +24,10 @@ class AppControllerImpl(
     }
 
     @GetMapping("/app/check")
+    @ResponseStatus(HttpStatus.OK)
     override fun checkOrderStatus(@RequestHeader("jwt") token: String,
-                                  @RequestParam orderId: Long) : ResponseEntity<String> {
-        val ans = orderService.checkOrderStatus(token, orderId)
-        return ResponseEntity.status(HttpStatus.OK).body(ans)
+                                  @RequestParam orderId: Long) : OrderEntity {
+        val ans = orderService.getOrder(token, orderId)
+        return ans
     }
 }

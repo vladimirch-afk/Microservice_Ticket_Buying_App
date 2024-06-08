@@ -42,7 +42,7 @@ class OrderServiceImpl(
         return orderId
     }
 
-    override fun checkOrderStatus(token: String, orderId: Long): String {
+    override fun getOrder(token: String, orderId: Long): OrderEntity {
         val order : OrderEntity?
         try {
             val info = authenticationApi.getUserInfo(token)
@@ -51,15 +51,9 @@ class OrderServiceImpl(
             if(order.userId != info.id){
                 throw IllegalArgumentException("Order belongs to different user.")
             }
+            return order
         } catch (e: FeignException) {
             throw IllegalArgumentException("Token is not valid or already expired.")
         }
-        if (order.status == 0) {
-            return "check"
-        }
-        if (order.status == 1) {
-            return "success"
-        }
-        return "rejection"
     }
 }
