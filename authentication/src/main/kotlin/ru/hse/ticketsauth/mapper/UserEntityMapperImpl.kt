@@ -1,8 +1,6 @@
 package ru.hse.ticketsauth.mapper
 
 import org.springframework.stereotype.Component
-import ru.hse.ticketsauth.services.entities.InfoEntity
-import ru.hse.ticketsauth.services.entities.UserEntity
 
 @Component
 class UserEntityMapperImpl : UserEntityMapper {
@@ -16,7 +14,7 @@ class UserEntityMapperImpl : UserEntityMapper {
         entity.created
     )
 
-    override fun userEntityServiceToInfoEntity(entity: UserEntity) =
+    override fun userEntityServiceToInfoEntity(entity: ru.hse.ticketsauth.services.entities.UserEntity) =
         ru.hse.ticketsauth.services.entities.InfoEntity(
             entity.id,
             entity.nickname,

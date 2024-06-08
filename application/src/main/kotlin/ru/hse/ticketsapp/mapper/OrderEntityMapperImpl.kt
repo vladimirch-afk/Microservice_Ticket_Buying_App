@@ -8,8 +8,8 @@ class OrderEntityMapperImpl : OrderEntityMapper {
         ru.hse.ticketsapp.services.entities.OrderEntity(
             entity.id,
             entity.userId,
-            entity.from,
-            entity.to,
+            entity.fromStationId,
+            entity.toStationId,
             entity.status,
             entity.created
         )

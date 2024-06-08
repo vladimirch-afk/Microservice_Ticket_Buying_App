@@ -7,6 +7,6 @@ data class OrderEntity(
     val userId: Long,
     val from: Long,
     val to: Long,
-    val status: String,
+    val status: Int,
     val created: LocalDateTime
 )

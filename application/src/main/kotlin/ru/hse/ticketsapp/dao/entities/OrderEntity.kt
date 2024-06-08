@@ -9,8 +9,8 @@ data class OrderEntity(
     @Id
     val id: Long?,
     val userId: Long,
-    val from: Long,
-    val to: Long,
-    val status: String,
+    val fromStationId: Long,
+    val toStationId: Long,
+    val status: Int,
     val created: LocalDateTime
 )

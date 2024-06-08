@@ -7,5 +7,5 @@ import java.util.Optional
 
 @Repository
 interface OrderEntityDao : CrudRepository<OrderEntity, Long> {
-    fun findByStatus(status: String): Optional<List<OrderEntity>>
+    fun findByStatus(status: Int): Optional<List<OrderEntity>>
 }

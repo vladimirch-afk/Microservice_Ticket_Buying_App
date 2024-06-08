@@ -30,7 +30,7 @@ class OrderServiceImpl(
             userId,
             station1.id!!,
             station2.id!!,
-            "check",
+            0,
             LocalDateTime.now()
         )
         val orderId : Long
@@ -54,6 +54,12 @@ class OrderServiceImpl(
         } catch (e: FeignException) {
             throw IllegalArgumentException("Token is not valid or already expired.")
         }
-        return order.status
+        if (order.status == 0) {
+            return "check"
+        }
+        if (order.status == 1) {
+            return "success"
+        }
+        return "rejection"
     }
 }
