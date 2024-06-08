@@ -25,7 +25,7 @@ class AppControllerImpl(
 
     @GetMapping("/app/check")
     @ResponseStatus(HttpStatus.OK)
-    override fun checkOrderStatus(@RequestHeader("jwt") token: String,
+    override fun getOrderInfo(@RequestHeader("jwt") token: String,
                                   @RequestParam orderId: Long) : OrderEntity {
         val ans = orderService.getOrder(token, orderId)
         return ans

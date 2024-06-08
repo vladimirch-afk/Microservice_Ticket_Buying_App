@@ -10,6 +10,7 @@ import ru.hse.ticketsapp.controllers.entities.InfoEntity
 @Component
 interface AuthenticationApi {
 
+    // Получить информацию о пользователе от другого микросервиса
     @GetMapping("/info/{token}")
     fun getUserInfo(@PathVariable token: String): InfoEntity
 }

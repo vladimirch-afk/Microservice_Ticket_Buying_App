@@ -9,6 +9,7 @@ import ru.hse.ticketsapp.dao.entities.OrderEntity
 class OrderStatusChanger(
     val orderEntityDao: OrderEntityDao
 ) {
+    // Каждые 10 секунд менять статус заказов в БД
     @Scheduled(fixedRate = 10000)
     fun processOrderStatus() {
         orderEntityDao.findByStatus(0).get().forEach {
